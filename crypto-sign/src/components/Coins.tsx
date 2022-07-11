@@ -14,7 +14,7 @@ const Coins = () => {
                 <p>current_pricePrice</p>
                 <p>24h</p>
                 <p>Volume</p>
-                <p>Mkt Cap</p>
+                <p>Mkt Capppppp</p>
             </div>
 
             {coins.map((coins) => {
