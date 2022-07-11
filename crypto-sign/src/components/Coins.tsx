@@ -2,6 +2,7 @@ import React from 'react'
 import CoinItem from './coin-item'
 import getCoins from '../services/coinGecoAPI'
 import types from '../Types/coin-type'
+import useCoin from '../services/coinGecoAPI'
 
 interface PropTypes {
     coin: types
@@ -9,6 +10,7 @@ interface PropTypes {
 }
 
 const Coins = (props: PropTypes) => {
+    const {coins} = useCoin()
   return (
     <div className='container'>
         <div>
@@ -21,11 +23,12 @@ const Coins = (props: PropTypes) => {
                 <p>Mkt Cap</p>
             </div>
 
-            {props.getCoins.map((coins: types) => {
+            {/* {props.getCoins.map((coins: types) => {
+
                 return (
-                    <CoinItem coin={coins} />
+                    <CoinItem key={coins.id} coin={} />
                 )
-            })}
+            })} */}
 
         </div>
     </div>

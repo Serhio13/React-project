@@ -11,10 +11,14 @@ import getCoins from './services/coinGecoAPI'
 function App() {
 
   return (
-    <>
-    <Coins coin={Coins}/>
-    </>
-  );
+<Coins />
+  )
+
+  // return (
+  //   <>
+  //   {/* <Coins coin={Coins}/> */}
+  //   </>
+  // );
 }
 
 export default App;
