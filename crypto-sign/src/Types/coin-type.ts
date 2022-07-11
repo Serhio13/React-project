@@ -1,4 +1,6 @@
-export default interface coinInfo {
+import { type } from "@testing-library/user-event/dist/type";
+
+export type coinInfo = {
     id: string;
     symbol: string;
     name: string;

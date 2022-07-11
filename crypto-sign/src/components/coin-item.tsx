@@ -1,23 +1,25 @@
-import React from 'react'
-import types from '../Types/coin-type'
-import getCoins from '../services/coinGecoAPI'
+import React, { FC, useState } from 'react'
+import useCoinRes from '../hooks/useCoinRes'
+import { coinInfo } from '../Types/coin-type';
+import Coins from './Coins'
 
-interface PropTypes {
-    coin: types
-}
 
-const CoinItem = (props: PropTypes) => {
+const CoinItem: FC<{coins: coinInfo}> = ({coins}) => {
+  // const {coins} = useCoinRes()
+  console.log(coins);
+  
   return (
+  
     <div className='coin-row'>
-        <p>{props.coin.market_cap_rank}</p>
+        <p>{coins.market_cap_rank}</p>
         <div className='img-symbol'>
-            <img src={props.coin.image} alt={props.coin.name}></img>
-            <p>{props.coin.symbol}</p>
+            <img src={coins.image} alt={coins.name}></img>
+            <p>{coins.symbol}</p>
         </div>  
-    <p>{props.coin.current_price}</p>
-    <p>{props.coin.price_change_percentage_24h}</p>      
-    <p>{props.coin.total_volume}</p>      
-    <p>{props.coin.market_cap}</p>      
+    <p>{coins.current_price}</p>
+    <p>{coins.price_change_percentage_24h}</p>      
+    <p>{coins.total_volume}</p>      
+    <p>{coins.market_cap}</p>      
     </div>
   )
 }
