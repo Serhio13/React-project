@@ -1,11 +1,13 @@
-import React, { useState } from 'react'
+import React, { FC } from 'react'
 import CoinItem from './coin-item'
-import { coinInfo } from '../Types/coin-type'
 import useCoinRes from '../hooks/useCoinRes'
+import './Coins.css'
+import {Link} from 'react-router-dom'
+import Coin from '../routes/Coin'
 
 const Coins = () => {
     const {coins} = useCoinRes()
-  return (
+    return (
     <div className='container'>
         <div>
             <div className='heading'>
@@ -19,7 +21,9 @@ const Coins = () => {
 
             {coins.map((coins) => {
                 return (
-                    <CoinItem key={coins.id} coins={coins}/>
+                    <Link to={`/coin/${coins.id}`} element={<Coin />} key={coins.id}>
+                        <CoinItem coins={coins}/>
+                    </Link>
                 )
             })}
 

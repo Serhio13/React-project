@@ -1,18 +1,24 @@
-import React, { useEffect, useState } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import axios from 'axios';
+import {Routes, Route} from 'react-router-dom';
 import Coins from './components/Coins';
+import Coin from './routes/Coin';
+import NavBar from './components/NavBar';
 
 
 
 
 function App() {
 
-  
   return (
     <>
-    <Coins />
+      <NavBar />
+      <Routes>
+        <Route path='/' element={<Coins />} />
+        <Route path='/coin' element={<Coin />}>
+          <Route path=':coinId' element={<Coin />} />
+        </Route>
+      </Routes>
+      
     </>
   );
 }
