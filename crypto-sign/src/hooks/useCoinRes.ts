@@ -15,16 +15,17 @@ function useCoinRes () {
 function useCoin (id?: string) {
   const [loading, setLoadin] = useState(false)
   const [error, setError] = useState(false)
-  const [coins, setCoins] = useState<Array<coinInfo>>([])
+  const [coins, setCoins] = useState<coinInfo | null>(null)
 
   const getCoin = async () => {
     try {
       setLoadin(true)
-      const res = await Api.getCoin(id)
-      setCoins(res)
+      const {data} = await Api.getCoin(id as string)
+      console.log(data)
+      setCoins(data)
     } catch (error: any) {
       setError(error)
-    } finaly {
+    } finally {
       setLoadin(false)
     }
   }
