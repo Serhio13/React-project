@@ -1,9 +1,14 @@
 import React, { FC } from 'react'
+import {useCoinRes} from '../hooks/useCoinRes'
 import { coinInfo } from '../Types/coin-type'
 
-const Coin: FC<{coins: coinInfo}> = ({coins}) => {
+const Coin = () => {
+  const {id} = useMatches()
+  const {coint, loading} = useCoin(id)
   return (
-    <div>Coin</div>
+    <div>
+      
+    </div>
   )
 }
 

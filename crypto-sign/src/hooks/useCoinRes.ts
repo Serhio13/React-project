@@ -12,5 +12,29 @@ function useCoinRes () {
   }, [])
   return {coins}
 }
+function useCoin (id?: string) {
+  const [loading, setLoadin] = useState(false)
+  const [error, setError] = useState(false)
+  const [coins, setCoins] = useState<Array<coinInfo>>([])
 
-export default useCoinRes
+  const getCoin = async () => {
+    try {
+      setLoadin(true)
+      const res = await Api.getCoin(id)
+      setCoins(res)
+    } catch (error: any) {
+      setError(error)
+    } finaly {
+      setLoadin(false)
+    }
+  }
+
+  useEffect(() => {
+      if (id) {
+        getCoin()
+      }
+}, [id])
+
+return {coins, loading, error}
+}
+export {useCoinRes, useCoin}
