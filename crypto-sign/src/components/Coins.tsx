@@ -1,9 +1,8 @@
-import React, { FC } from 'react'
+import React from 'react'
 import CoinItem from './coin-item'
 import {useCoinRes} from '../hooks/useCoinRes'
 import './Coins.css'
 import {Link} from 'react-router-dom'
-import Coin from '../routes/Coin'
 
 const Coins = () => {
     const {coins} = useCoinRes()
@@ -13,10 +12,10 @@ const Coins = () => {
             <div className='heading'>
                 <p>#</p>
                 <p className='coin-name'>Coin</p>
-                <p>current_pricePrice</p>
+                <p>current Price</p>
                 <p>24h</p>
                 <p>Volume</p>
-                <p>Mkt Capppppp</p>
+                <p>Mkt Cap</p>
             </div>
 
             {coins.map((coins) => {

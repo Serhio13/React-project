@@ -4,8 +4,6 @@ import './Coins.css';
 
 
 const CoinItem: FC<{coins: coinInfo}> = ({coins}) => {
-  // const {coins} = useCoinRes()
-  console.log(coins);
   
   return (
   
