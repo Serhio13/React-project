@@ -1,8 +1,8 @@
-import React, {FC} from 'react'
+import { Chart } from 'chart.js';
+import React from 'react'
 import { useParams } from 'react-router-dom'
 import { useCoin } from '../hooks/useCoinRes'
 import './Coin.css';
-import DOMPurify from 'dompurify';
 
 
 
@@ -47,12 +47,12 @@ const Coin = () => {
           </thead>
           <tbody>
             <tr>
-              <td>{coins?.market_data.price_change_percentage_1h_in_currency.usd.toFixed(2)}%</td>
-              <td>{coins?.market_data.price_change_percentage_24h_in_currency.usd.toFixed(2)}%</td>
-              <td>{coins?.market_data.price_change_percentage_7d_in_currency.usd.toFixed(2)}%</td>
-              <td>{coins?.market_data.price_change_percentage_14d_in_currency.usd.toFixed(2)}%</td>
-              <td>{coins?.market_data.price_change_percentage_30d_in_currency.usd.toFixed(2)}%</td>
-              <td>{coins?.market_data.price_change_percentage_1y_in_currency.usd.toFixed(2)}%</td>
+              <td style={{color: (parseInt((coins?.market_data.price_change_percentage_1h_in_currency.usd.toFixed(2)) as string) > 0) ? 'green' : 'red' }}>{coins?.market_data.price_change_percentage_1h_in_currency.usd.toFixed(2)}%</td>
+              <td style={{color: (parseInt((coins?.market_data.price_change_percentage_24h_in_currency.usd.toFixed(2)) as string) > 0) ? 'green' : 'red' }}>{coins?.market_data.price_change_percentage_24h_in_currency.usd.toFixed(2)}%</td>
+              <td style={{color: (parseInt((coins?.market_data.price_change_percentage_7d_in_currency.usd.toFixed(2)) as string) > 0) ? 'green' : 'red' }}>{coins?.market_data.price_change_percentage_7d_in_currency.usd.toFixed(2)}%</td>
+              <td style={{color: (parseInt((coins?.market_data.price_change_percentage_14d_in_currency.usd.toFixed(2)) as string) > 0) ? 'green' : 'red' }}>{coins?.market_data.price_change_percentage_14d_in_currency.usd.toFixed(2)}%</td>
+              <td style={{color: (parseInt((coins?.market_data.price_change_percentage_30d_in_currency.usd.toFixed(2)) as string) > 0) ? 'green' : 'red' }}>{coins?.market_data.price_change_percentage_30d_in_currency.usd.toFixed(2)}%</td>
+              <td style={{color: (parseInt((coins?.market_data.price_change_percentage_1y_in_currency.usd.toFixed(2)) as string) > 0) ? 'green' : 'red' }}>{coins?.market_data.price_change_percentage_1y_in_currency.usd.toFixed(2)}%</td>
             </tr>
           </tbody>
         </table>
@@ -81,20 +81,17 @@ const Coin = () => {
             </div>
           </div>
 
+        </div>
         <div className='content'>
           <div className='about'>
             <h3>About</h3>
-            <p>{coins?.description.en}</p>
+            <p dangerouslySetInnerHTML={{__html: coins?.description.en as string}}/>
           </div>
         </div> 
-
-        </div>
       </div>
 
       </div>
-      {/* {coins && (
-        <h1>{coins.name}</h1>
-      )} */}
+      
     </div>
   )
 }
