@@ -2,17 +2,17 @@ import { Chart } from 'chart.js';
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import { useCoin } from '../hooks/useCoinRes'
-import './Coin.css';
 
+import './Coin.css';
+import {Spin} from 'antd';
 
 
 const Coin = () => {
   const {coinId} = useParams()
   const {coins, loading} = useCoin(coinId)
   return (
+    <Spin spinning={loading}>
     <div>
-      {loading && "loading"}
-
       <div className='coin-container'>
         <div className='content'>
             <h1>{coins?.name}</h1>
@@ -93,6 +93,7 @@ const Coin = () => {
       </div>
       
     </div>
+    </Spin>
   )
 }
 

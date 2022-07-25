@@ -3,6 +3,8 @@ import { GiCoins } from 'react-icons/gi'
 import './NavBar.css'
 import {Link} from 'react-router-dom'
 import useTheme from '../hooks/useTheme'
+import { Button } from 'antd'
+import { LineChartOutlined } from '@ant-design/icons'
 
 const NavBar = () => {
   const { theme, setTheme } = useTheme()
@@ -19,14 +21,14 @@ const NavBar = () => {
     <>
     <Link to='/'>
         <div className='navbar'>
-            <GiCoins className='navbar__icon' />
+            <LineChartOutlined style={{ fontSize: '36px', color: '#00ac00' }} />
             <h1><span className='logo'>Crypto</span><span className='green'>Sign</span></h1>
             
         </div>
     </Link>
     <div className='switcher'>
-      <div className='switch__theme' onClick={handleLightTheme}>Light</div>
-      <div className='switch__theme' onClick={handleDarkTheme}>Dark</div>
+      <Button ghost size='small' onClick={handleLightTheme}>Light</Button>
+      <Button ghost size='small' onClick={handleDarkTheme}>Dark</Button>
     </div>
   </>
   )
