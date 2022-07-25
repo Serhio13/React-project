@@ -9,6 +9,11 @@
     border-radius: 8px;
 }
 
+.content h1, h3, h4, a {
+    color: var(--text-color);
+    margin-bottom: 0;
+}
+
 .rank {
     margin: 0.5 0;
 }
@@ -40,6 +45,7 @@
 
 .info p {
     padding-right: 1rem;
+    margin-bottom: 0;
 }
 
 table {
@@ -64,6 +70,7 @@ th {
 
 .stats .row {
     display: flex;
+    align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid #808080;
     margin: 0.5rem 0;
@@ -78,3 +85,6 @@ th {
     margin: 0 auto;
 }
 
+.ant-spin-nested-loading > div > .ant-spin{
+    max-height: 100vh;
+}

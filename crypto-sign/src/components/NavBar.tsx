@@ -21,7 +21,7 @@ const NavBar = () => {
     <>
     <Link to='/'>
         <div className='navbar'>
-            <LineChartOutlined style={{ fontSize: '36px', color: '#00ac00' }} />
+            <LineChartOutlined  />
             <h1><span className='logo'>Crypto</span><span className='green'>Sign</span></h1>
             
         </div>

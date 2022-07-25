@@ -11,8 +11,8 @@ const Coin = () => {
   const {coinId} = useParams()
   const {coins, loading} = useCoin(coinId)
   return (
-    <Spin spinning={loading}>
-    <div>
+    <Spin size='large' spinning={loading}>
+      <div>
       <div className='coin-container'>
         <div className='content'>
             <h1>{coins?.name}</h1>

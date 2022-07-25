@@ -8,7 +8,9 @@
     font-size: 32px;
     color: rgb(0, 172, 0);
 }
-
+.navbar .anticon.anticon-line-chart svg{
+    fill: rgb(0, 172, 0);
+}
 .green {
     color: rgb(0, 172, 0);
 }
