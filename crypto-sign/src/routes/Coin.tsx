@@ -5,6 +5,8 @@ import { useCoin } from '../hooks/useCoinRes'
 
 import './Coin.css';
 import {Spin} from 'antd';
+import CoinTable from '../components/tables/CoinTable';
+import { idText } from 'typescript';
 
 
 const Coin = () => {
@@ -89,7 +91,6 @@ const Coin = () => {
           </div>
         </div> 
       </div>
-
       </div>
       
     </div>
