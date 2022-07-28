@@ -1,60 +1,60 @@
 .container {
-    max-width: 1140px;
-    margin: auto;
+  max-width: 1140px;
+  margin: auto;
 }
 
 .container .ant-input {
-    background-color: var(--background-color);
-    color: var(--text-color);
-    box-shadow: 0px 0px 12px #18191b;
-    border-radius: 8px;
-    border: none;
-    margin-left: 1rem;
-    width: 200px;
-    height: 30px;
-    outline: none;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  box-shadow: 0px 0px 12px #18191b;
+  border-radius: 8px;
+  border: none;
+  margin-left: 1rem;
+  width: 200px;
+  height: 30px;
+  outline: none;
 }
 
 .heading {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1.5fr 1fr 1fr 1fr;
-    background-color: var(--background-color);
-    box-shadow: 0px 0px 12px #18191b;
-    border-radius: 8px;
-    margin: 2rem 1rem;
-    padding: 0.7rem 1rem;
-    font-weight: 700;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.5fr 1fr 1fr 1fr;
+  background-color: var(--background-color);
+  box-shadow: 0px 0px 12px #18191b;
+  border-radius: 8px;
+  margin: 2rem 1rem;
+  padding: 0.7rem 1rem;
+  font-weight: 700;
 }
 
 .coin-name {
-    margin-left: -4rem;
+  margin-left: -4rem;
 }
 
 .coin-row {
-    display: grid;
-    grid-template-columns: 0.5fr 1fr 1fr 1fr 1fr 1fr;
-    background-color: var(--background-color);
-    color: var(--text-color);
-    box-shadow: 0px 0px 12px #18191b;
-    border-radius: 8px;
-    margin: 2rem 1rem;
-    padding: 0.7rem 1rem;
-    transform: scale(1);
-    transition: 0.3s ease-in-out all;
+  display: grid;
+  grid-template-columns: 0.5fr 1fr 1fr 1fr 1fr 1fr;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  box-shadow: 0px 0px 12px #18191b;
+  border-radius: 8px;
+  margin: 2rem 1rem;
+  padding: 0.7rem 1rem;
+  transform: scale(1);
+  /* transition: transform 0.1s ease-in-out; */
 }
 
 .coin-row:hover {
-    transform: scale(1.03);
-    cursor: pointer;
+  transform: scale(1.03);
+  cursor: pointer;
 }
 
 img {
-    height: 40px;
-    margin-right: 8px;
-    width: auto;
+  height: 40px;
+  margin-right: 8px;
+  width: auto;
 }
 
 .img-symbol {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
