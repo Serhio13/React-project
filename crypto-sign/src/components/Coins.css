@@ -39,11 +39,12 @@
     border-radius: 8px;
     margin: 2rem 1rem;
     padding: 0.7rem 1rem;
+    transform: scale(1);
+    transition: 0.3s ease-in-out all;
 }
 
 .coin-row:hover {
     transform: scale(1.03);
-    transition: 0.3s ease-in-out;
     cursor: pointer;
 }
 

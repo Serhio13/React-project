@@ -23,19 +23,23 @@ const Coin = () => {
   console.log('historicData',  historicData)
   
   const fetchHistoricData = async () => {
-    // @ts-ignore
-    const { data } = await axios.get(HistoricalChart(coins?.id, days));
+    try {
+      const { data } = await axios.get(HistoricalChart(coins?.id as string, days));
     
-    setflag(true);
-    setHistoricData(data.prices);
-    console.log('data', data);
-  
-    console.log('prices', data.prices);
+        setflag(true);
+        setHistoricData(data.prices);
+        console.log('data', data);
+      
+        console.log('prices', data.prices);
+    } catch (e) {
+      console.log(e);
+      
+    }
   };
 
   useEffect(() => {
-    fetchHistoricData();
-  }, [days]);
+    if (coins) fetchHistoricData();
+  }, [coins]);
 
   return (
     <Spin size='large' spinning={loading}>

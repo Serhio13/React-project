@@ -46,3 +46,6 @@
     border-radius: 8px;
     border: none;
 }
+.switcher .ant-btn:first-child {
+    margin-right: 8px;
+}
