@@ -101,5 +101,11 @@ export type coinImage = {
     },
     description: {
         en: string;
-    }
+    },
+    prices: [
+        [
+            number,
+            number
+        ]
+    ]
   }

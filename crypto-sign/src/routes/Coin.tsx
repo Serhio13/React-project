@@ -1,5 +1,5 @@
 import { Chart } from 'chart.js';
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { useCoin } from '../hooks/useCoinRes'
 
@@ -7,11 +7,36 @@ import './Coin.css';
 import {Spin} from 'antd';
 import CoinTable from '../components/tables/CoinTable';
 import { idText } from 'typescript';
+import axios from 'axios';
+import { HistoricalChart } from '../hooks/useHistory';
+import { Line } from 'react-chartjs-2';
 
 
 const Coin = () => {
   const {coinId} = useParams()
   const {coins, loading} = useCoin(coinId)
+
+  const [historicData, setHistoricData] = useState();
+  const [days, setDays] = useState(1);
+  const [flag, setflag] = useState(false);
+
+  console.log('historicData',  historicData)
+  
+  const fetchHistoricData = async () => {
+    // @ts-ignore
+    const { data } = await axios.get(HistoricalChart(coins?.id, days));
+    
+    setflag(true);
+    setHistoricData(data.prices);
+    console.log('data', data);
+  
+    console.log('prices', data.prices);
+  };
+
+  useEffect(() => {
+    fetchHistoricData();
+  }, [days]);
+
   return (
     <Spin size='large' spinning={loading}>
       <div>
@@ -92,7 +117,34 @@ const Coin = () => {
         </div> 
       </div>
       </div>
-      
+      {/* <Line
+              data={{
+                labels: historicData.map((coins: any) => {
+                  let date = new Date(coins[0]);
+                  let time =
+                    date.getHours() > 12
+                      ? `${date.getHours() - 12}:${date.getMinutes()} PM`
+                      : `${date.getHours()}:${date.getMinutes()} AM`;
+                  return days === 1 ? time : date.toLocaleDateString();
+                }),
+
+                datasets: [
+                  {
+                    // @ts-ignore
+                    data: historicData.map((coins) => coins[1]),
+                    label: `Price ( Past ${days} Days ) in usd`,
+                    borderColor: "#EEBC1D",
+                  },
+                ],
+              }}
+              options={{
+                elements: {
+                  point: {
+                    radius: 1,
+                  },
+                },
+              }}
+            /> */}
     </div>
     </Spin>
   )

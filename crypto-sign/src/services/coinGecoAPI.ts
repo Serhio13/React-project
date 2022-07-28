@@ -11,4 +11,7 @@ export class Api {
   static getCoin(id: string): Promise<AxiosResponse<coinImage>> {
     return $api.get(id)
   }
+  // static getHistory(id: string, days = 365, currency: string): Promise<AxiosResponse<coinImage>> {
+  //   return $api.get(`${id}/market_chart?vs_currency=${currency}&days=${days}`)
+  // }
 }

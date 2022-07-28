@@ -38,4 +38,35 @@ function useCoin (id?: string) {
 
 return {coins, loading, error}
 }
+
+// function useHistory (id?: string) {
+//   const [historicalData, setHistoricalData] = useState<coinImage>();
+//   const [days, setDays] = useState(1);
+//   const [flag, setFlag] = useState(false);
+//   const [error, setError] = useState(false)
+//   const [loading, setLoading] = useState(false)
+
+
+//   // const fetchHistoricData = async () => {
+//   //   const { data } = await axios.get(HistoricalChart(coin.id, days, currency));
+//   //   setflag(true);
+//   //   setHistoricData(data.prices);
+//   // };
+
+//   const getHistory = async () => {
+//     try {
+//       setLoading(true)
+//       const {data} = await Api.getCoin(id as string)
+//       setFlag(true)
+//       // @ts-ignore
+//       setHistoricalData(data.prices)
+//     } catch (error: any) {
+//       setError(error)
+//     } finally {
+//       setLoading(false)
+//     }
+//   }
+
+// }
+
 export {useCoinRes, useCoin}
