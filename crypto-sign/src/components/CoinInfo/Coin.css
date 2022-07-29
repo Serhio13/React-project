@@ -88,3 +88,14 @@ th {
 .ant-spin-nested-loading > div > .ant-spin{
     max-height: 100vh;
 }
+
+.priceChange {
+    display: flex;
+    justify-content: space-around;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

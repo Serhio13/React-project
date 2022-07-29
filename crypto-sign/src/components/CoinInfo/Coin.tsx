@@ -4,41 +4,13 @@ import { useParams } from 'react-router-dom';
 import { useCoin } from '../../hooks/useCoinRes';
 
 import './Coin.css';
-import { Spin } from 'antd';
+import { Spin, Tooltip } from 'antd';
 import axios from 'axios';
-import { HistoricalChart } from '../../hooks/useHistory';
 import { Line } from 'react-chartjs-2';
 
 const Coin = () => {
   const { coinId } = useParams();
   const { coins, loading } = useCoin(coinId);
-
-  const [historicData, setHistoricData] = useState<Array<
-    [string, string]
-  > | null>(null);
-  const [days, setDays] = useState(1);
-  const [flag, setflag] = useState(false);
-
-  console.log('historicData', historicData);
-
-  const fetchHistoricData = async () => {
-    try {
-      const { data } = await axios.get(
-        HistoricalChart(coins?.id as string, days)
-      );
-
-      setflag(true);
-      setHistoricData(data.prices);
-      console.log('data', data);
-      console.log('prices', data.prices);
-    } catch (e) {
-      console.log(e);
-    }
-  };
-
-  useEffect(() => {
-    if (coins) fetchHistoricData();
-  }, [coins]);
 
   return (
     <Spin size="large" spinning={loading}>
@@ -64,128 +36,58 @@ const Coin = () => {
               </div>
             </div>
           </div>
-
           <div className="content">
-            <table>
-              <thead>
-                <tr>
-                  <th>1h</th>
-                  <th>24h</th>
-                  <th>7d</th>
-                  <th>14d</th>
-                  <th>30d</th>
-                  <th>1yr</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td
-                    style={{
-                      color:
-                        parseInt(
-                          coins?.market_data.price_change_percentage_1h_in_currency.usd.toFixed(
-                            2
-                          ) as string
-                        ) > 0
-                          ? 'green'
-                          : 'red',
-                    }}
-                  >
-                    {coins?.market_data.price_change_percentage_1h_in_currency.usd.toFixed(
-                      2
-                    )}
-                    %
-                  </td>
-                  <td
-                    style={{
-                      color:
-                        parseInt(
-                          coins?.market_data.price_change_percentage_24h_in_currency.usd.toFixed(
-                            2
-                          ) as string
-                        ) > 0
-                          ? 'green'
-                          : 'red',
-                    }}
-                  >
-                    {coins?.market_data.price_change_percentage_24h_in_currency.usd.toFixed(
-                      2
-                    )}
-                    %
-                  </td>
-                  <td
-                    style={{
-                      color:
-                        parseInt(
-                          coins?.market_data.price_change_percentage_7d_in_currency.usd.toFixed(
-                            2
-                          ) as string
-                        ) > 0
-                          ? 'green'
-                          : 'red',
-                    }}
-                  >
-                    {coins?.market_data.price_change_percentage_7d_in_currency.usd.toFixed(
-                      2
-                    )}
-                    %
-                  </td>
-                  <td
-                    style={{
-                      color:
-                        parseInt(
-                          coins?.market_data.price_change_percentage_14d_in_currency.usd.toFixed(
-                            2
-                          ) as string
-                        ) > 0
-                          ? 'green'
-                          : 'red',
-                    }}
-                  >
-                    {coins?.market_data.price_change_percentage_14d_in_currency.usd.toFixed(
-                      2
-                    )}
-                    %
-                  </td>
-                  <td
-                    style={{
-                      color:
-                        parseInt(
-                          coins?.market_data.price_change_percentage_30d_in_currency.usd.toFixed(
-                            2
-                          ) as string
-                        ) > 0
-                          ? 'green'
-                          : 'red',
-                    }}
-                  >
-                    {coins?.market_data.price_change_percentage_30d_in_currency.usd.toFixed(
-                      2
-                    )}
-                    %
-                  </td>
-                  <td
-                    style={{
-                      color:
-                        parseInt(
-                          coins?.market_data.price_change_percentage_1y_in_currency.usd.toFixed(
-                            2
-                          ) as string
-                        ) > 0
-                          ? 'green'
-                          : 'red',
-                    }}
-                  >
-                    {coins?.market_data.price_change_percentage_1y_in_currency.usd.toFixed(
-                      2
-                    )}
-                    %
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+            <div className="priceChange">
+              <Tooltip title="price change in the last hour" color="#33343b8e">
+                <div className="column">
+              <div>1h</div>
+              <div style={{ color: parseInt(coins?.market_data.price_change_percentage_1h_in_currency.usd.toFixed(2) as string) > 0 ? 'green' : 'red'}}>
+                {coins?.market_data.price_change_percentage_1h_in_currency.usd.toFixed(2)}%
+              </div>
+                </div>
+              </Tooltip>
+              <Tooltip title="price change in the last 24 hours" color="#33343b8e">
+                <div className="column">
+              <div>24h</div>
+              <div style={{ color: parseInt(coins?.market_data.price_change_percentage_24h_in_currency.usd.toFixed(2) as string) > 0 ? 'green' : 'red'}}>
+                {coins?.market_data.price_change_percentage_24h_in_currency.usd.toFixed(2)}%
+              </div>
+                </div>
+              </Tooltip>
+              <Tooltip title="price change in the last 7 days" color="#33343b8e">
+                <div className="column">
+              <div>7d</div>
+              <div style={{ color: parseInt(coins?.market_data.price_change_percentage_7d_in_currency.usd.toFixed(2) as string) > 0 ? 'green' : 'red'}}>
+                {coins?.market_data.price_change_percentage_7d_in_currency.usd.toFixed(2)}%
+              </div>
+                </div>
+              </Tooltip>
+              <Tooltip title="price change in the last 14 days" color="#33343b8e">
+                <div className="column">
+              <div>14d</div>
+              <div style={{ color: parseInt(coins?.market_data.price_change_percentage_14d_in_currency.usd.toFixed(2) as string) > 0 ? 'green' : 'red'}}>
+                {coins?.market_data.price_change_percentage_14d_in_currency.usd.toFixed(2)}%
+              </div>
+                </div>
+              </Tooltip>
+              <Tooltip title="price change in the last 30 days" color="#33343b8e">
+                <div className="column">
+              <div>30d</div>
+              <div style={{ color: parseInt(coins?.market_data.price_change_percentage_30d_in_currency.usd.toFixed(2) as string) > 0 ? 'green' : 'red'}}>
+                {coins?.market_data.price_change_percentage_30d_in_currency.usd.toFixed(2)}%
+              </div>
+                </div>
+              </Tooltip>
+              <Tooltip title="price change over the last year" color="#33343b8e">
+                <div className="column">
+              <div>7y</div>
+              <div style={{ color: parseInt(coins?.market_data.price_change_percentage_1y_in_currency.usd.toFixed(2) as string) > 0 ? 'green' : 'red'}}>
+                {coins?.market_data.price_change_percentage_1y_in_currency.usd.toFixed(2)}%
+              </div>
+                </div>
+              </Tooltip>
+            </div>
           </div>
-
           <div className="content">
             <div className="stats">
               <div className="left">
@@ -221,33 +123,6 @@ const Coin = () => {
             </div>
           </div>
         </div>
-        {/* <Line
-            data={{
-              labels: historicData?.map((coins) => {
-                let date = new Date(coins[0]);
-                let time =
-                  date.getHours() > 12
-                    ? `${date.getHours() - 12}:${date.getMinutes()} PM`
-                    : `${date.getHours()}:${date.getMinutes()} AM`;
-                return days === 1 ? time : date.toLocaleDateString();
-              }),
-
-              datasets: [
-                {
-                  data: historicData?.map((coins) => coins[1]),
-                  label: `Price ( Past ${days} Days ) in usd`,
-                  borderColor: '#EEBC1D',
-                },
-              ],
-            }}
-            options={{
-              elements: {
-                point: {
-                  radius: 1,
-                },
-              },
-            }}
-          /> */}
       </div>
     </Spin>
   );
