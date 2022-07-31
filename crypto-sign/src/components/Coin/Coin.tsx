@@ -1,12 +1,8 @@
-import { Chart } from 'chart.js';
-import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useCoin } from '../../hooks/useCoinRes';
 
 import './Coin.css';
 import { Spin, Tooltip } from 'antd';
-import axios from 'axios';
-import { Line } from 'react-chartjs-2';
 
 const Coin = () => {
   const { coinId } = useParams();

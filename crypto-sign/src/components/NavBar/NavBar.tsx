@@ -18,23 +18,36 @@ const NavBar = () => {
 
   return (
     <>
-      <Link to="/">
-        <div className="navbar">
+    <div className="navbar_wrapper">
+      <div className="navbar">
+  
+        <Button ghost size="small">
+          <Link to="/">
+            Back
+          </Link>
+        </Button>
+  
+        <Link to="/">
+          <div className="logo">
           <LineChartOutlined />
           <h1>
-            <span className="logo">Crypto</span>
+            <span className="span-logo">Crypto</span>
             <span className="green">Sign</span>
           </h1>
+          </div>
+        </Link>
+  
+        <div className="switcher">
+          <Button ghost size="small" onClick={handleLightTheme}>
+            Light
+          </Button>
+          <Button ghost size="small" onClick={handleDarkTheme}>
+            Dark
+          </Button>
         </div>
-      </Link>
-      <div className="switcher">
-        <Button ghost size="small" onClick={handleLightTheme}>
-          Light
-        </Button>
-        <Button ghost size="small" onClick={handleDarkTheme}>
-          Dark
-        </Button>
       </div>
+      </div>
+      
     </>
   );
 };

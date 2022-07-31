@@ -15,7 +15,7 @@
 }
 
 .rank {
-    margin: 0.5 0;
+    margin: 3px;
 }
 
 .rank-btn {
@@ -37,6 +37,10 @@
     margin: 1rem 0;
 }
 
+.info .coin-heading p {
+    font-size: 28px;
+}
+
 .info .coin-price {
     display: flex;
     align-items: center;
@@ -46,19 +50,6 @@
 .info p {
     padding-right: 1rem;
     margin-bottom: 0;
-}
-
-table {
-    margin: 0.5rem 0;
-}
-
-td, th {
-    padding: 8px;
-    text-align: center;
-}
-
-th {
-    background-color: var(--background-color);
 }
 
 .stats {

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import CoinItem from './coin-item';
+import CoinItem from '../CoinItem/CoinItem';
 import { useCoinRes } from '../../hooks/useCoinRes';
-import '../Coins.css';
+import './Coins.css';
 import { Link } from 'react-router-dom';
 import { Input } from 'antd';
 
@@ -23,11 +23,11 @@ const Coins = () => {
         <Input placeholder="Search" onChange={handlerChange} />
         <div className="heading">
           <p>#</p>
-          <p className="coin-name">Coin</p>
+          <p>Coin</p>
           <p>current Price</p>
           <p>24h</p>
-          <p>Volume</p>
-          <p>Mkt Cap</p>
+          <p className="hide-mobile">Volume</p>
+          <p className="hide-mobile">Mkt Cap</p>
         </div>
 
         {filteredCoins.map((coins) => {

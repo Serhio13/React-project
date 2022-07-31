@@ -32,7 +32,7 @@ export type coinInfo = {
     last_updated: Date;
 }
 
-export type coinImage = {
+export type coinItem = {
     image: {
         thumb: string,
         small: string,
@@ -101,11 +101,5 @@ export type coinImage = {
     },
     description: {
         en: string;
-    },
-    prices: [
-        [
-            number,
-            number
-        ]
-    ]
+    }
   }

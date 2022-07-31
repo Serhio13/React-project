@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { Api } from "../services/coinGecoAPI"
-import { coinImage, coinInfo } from "../Types/coin-type"
+import { coinItem, coinInfo } from "../Types/coin-type"
 
 function useCoinRes () {
     const [coins, setCoins] = useState<Array<coinInfo>>([])
@@ -16,7 +16,7 @@ function useCoinRes () {
 function useCoin (id?: string) {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(false)
-  const [coins, setCoins] = useState<coinImage | null>(null)
+  const [coins, setCoins] = useState<coinItem | null>(null)
 
   const getCoin = async () => {
     try {

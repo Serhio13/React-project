@@ -1,7 +1,7 @@
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import Coins from './components/Coins/Coins';
-import Coin from './components/CoinInfo/Coin';
+import Coin from './components/Coin/Coin';
 import NavBar from './components/NavBar/NavBar';
 
 function App() {

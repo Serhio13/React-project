@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { coinInfo } from '../../Types/coin-type';
-import '../Coins.css';
+import '../Coins/Coins.css';
 
 const CoinItem: FC<{ coins: coinInfo }> = ({ coins }) => {
   return (
@@ -19,8 +19,8 @@ const CoinItem: FC<{ coins: coinInfo }> = ({ coins }) => {
       >
         {coins.price_change_percentage_24h.toFixed(2)}%
       </p>
-      <p>${coins.total_volume.toLocaleString()}</p>
-      <p>${coins.market_cap.toLocaleString()}</p>
+      <p className="hide-mobile">${coins.total_volume.toLocaleString()}</p>
+      <p className="hide-mobile">${coins.market_cap.toLocaleString()}</p>
     </div>
   );
 };
