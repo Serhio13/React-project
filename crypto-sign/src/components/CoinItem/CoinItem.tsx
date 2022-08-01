@@ -1,12 +1,12 @@
 import React, { FC } from 'react';
 import { coinInfo } from '../../Types/coin-type';
-import '../Coins/Coins.css';
+import '../Coins/Coins.scss';
 
 const CoinItem: FC<{ coins: coinInfo }> = ({ coins }) => {
   return (
-    <div className="coin-row">
+    <div className="coin__row">
       <p>{coins.market_cap_rank}</p>
-      <div className="img-symbol">
+      <div className="coin__row-img">
         <img src={coins.image} alt={coins.name}></img>
         <p>{coins.symbol.toUpperCase()}</p>
       </div>

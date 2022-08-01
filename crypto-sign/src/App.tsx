@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import { Routes, Route } from 'react-router-dom';
 import Coins from './components/Coins/Coins';
 import Coin from './components/Coin/Coin';

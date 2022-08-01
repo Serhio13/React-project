@@ -1,5 +1,5 @@
 import React from 'react';
-import './NavBar.css';
+import './NavBar.scss';
 import { Link } from 'react-router-dom';
 import useTheme from '../../hooks/useTheme';
 import { Button } from 'antd';
@@ -18,36 +18,37 @@ const NavBar = () => {
 
   return (
     <>
-    <div className="navbar_wrapper">
-      <div className="navbar">
-  
-        <Button ghost size="small">
-          <Link to="/">
-            Back
-          </Link>
-        </Button>
-  
-        <Link to="/">
-          <div className="logo">
-          <LineChartOutlined />
-          <h1>
-            <span className="span-logo">Crypto</span>
-            <span className="green">Sign</span>
-          </h1>
+      <header>
+        <div className="container">
+          <div className="navbar">
+
+            <Button ghost size="small">
+              <Link to="/">
+              Back
+              </Link>
+            </Button>
+
+            <Link to="/">
+            <div className="navbar__logo">
+              <LineChartOutlined />
+              <h1>
+                <span className="navbar__logo-span">Crypto</span>
+                <span className="navbar__logo-green">Sign</span>
+              </h1>
+            </div>
+            </Link>
+
+            <div className="navbar__switcher">
+              <Button ghost size="small" onClick={handleLightTheme}>
+                Light
+              </Button>
+              <Button ghost size="small" onClick={handleDarkTheme}>
+                Dark
+              </Button>
+            </div>
           </div>
-        </Link>
-  
-        <div className="switcher">
-          <Button ghost size="small" onClick={handleLightTheme}>
-            Light
-          </Button>
-          <Button ghost size="small" onClick={handleDarkTheme}>
-            Dark
-          </Button>
-        </div>
-      </div>
-      </div>
-      
+        </div>  
+      </header> 
     </>
   );
 };

@@ -16,7 +16,7 @@
   outline: none;
 }
 
-.heading {
+.coin__heading {
   display: grid;
   grid-template-columns: 0.5fr 1fr 1fr 1fr 1fr 1fr;
   align-items: center;
@@ -29,12 +29,12 @@
   font-weight: 700;
 }
 
-.heading p {
+.coin__heading p {
   font-size: 16px;
   margin-bottom: 0;
 }
 
-.coin-row {
+.coin__row {
   display: grid;
   grid-template-columns: 0.5fr 1fr 1fr 1fr 1fr 1fr;
   align-items: center;
@@ -49,11 +49,11 @@
   /* transition: transform 0.1s ease-in-out; */
 }
 
-.coin-row p {
+.coin__row p {
   margin-bottom: 0;
 }
 
-.coin-row:hover {
+.coin__row:hover {
   transform: scale(1.03);
   cursor: pointer;
 }
@@ -64,7 +64,7 @@ img {
   width: auto;
 }
 
-.img-symbol {
+.coin__row-img {
   display: flex;
   align-items: center;
 }
@@ -73,7 +73,7 @@ img {
   .hide-mobile {
     display: none;
   }
-  .heading, .coin-row {
+  .coin__heading, .coin__row {
     grid-template-columns: 0.5fr 1fr 1fr 1fr;
   }
 }

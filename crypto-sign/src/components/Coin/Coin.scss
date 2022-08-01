@@ -1,4 +1,4 @@
-.coin-container .content {
+.coin__container .coin__content {
     max-width: 740px;
     margin: 1rem auto;
     padding: 0.7rem 1rem;
@@ -9,16 +9,16 @@
     border-radius: 8px;
 }
 
-.content h1, h3, h4, a {
+.coin__content h1, h3, h4, a {
     color: var(--text-color);
     margin-bottom: 0;
 }
 
-.rank {
+.coin__rank {
     margin: 3px;
 }
 
-.rank-btn {
+.coin__rank-btn {
     border: 1px solid rgb(0, 172, 0);
     box-shadow: 0px 0px 8px rgb(0, 172, 0);
     background-color: rgb(0, 172, 0);
@@ -26,40 +26,40 @@
     padding: 0.2rem;
 }
 
-.info {
+.coin__info {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
 }
 
-.info .coin-heading {
+.coin__info .coin__info-heading {
     display: flex;
     align-items: center;
     margin: 1rem 0;
 }
 
-.info .coin-heading p {
+.coin__info .coin__info-heading p {
     font-size: 28px;
 }
 
-.info .coin-price {
+.coin__info .coin__info-price {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.info p {
+.coin__info p {
     padding-right: 1rem;
     margin-bottom: 0;
 }
 
-.stats {
+.coin__stats {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 2rem;
     width: 100%;
 }
 
-.stats .row {
+.coin__stats .coin__stats-row {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -68,11 +68,11 @@
     padding-bottom: 0.5rem;
 }
 
-.stats .row p:first-child {
+.coin__stats .coin__stats-row p:first-child {
     color: #d3d3d3;
 }
 
-.about {
+.coin__content-about {
     margin: 0 auto;
 }
 
@@ -80,12 +80,12 @@
     max-height: 100vh;
 }
 
-.priceChange {
+.coin__pricechange {
     display: flex;
     justify-content: space-around;
 }
 
-.column {
+.coin__pricechange-column {
     display: flex;
     flex-direction: column;
     align-items: center;

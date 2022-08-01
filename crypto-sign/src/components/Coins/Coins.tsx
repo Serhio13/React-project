@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import CoinItem from '../CoinItem/CoinItem';
 import { useCoinRes } from '../../hooks/useCoinRes';
-import './Coins.css';
+import './Coins.scss';
 import { Link } from 'react-router-dom';
 import { Input } from 'antd';
 
@@ -18,10 +18,9 @@ const Coins = () => {
   );
 
   return (
-    <div className="container">
-      <div>
+    <div className="coin container">
         <Input placeholder="Search" onChange={handlerChange} />
-        <div className="heading">
+        <div className="coin__heading">
           <p>#</p>
           <p>Coin</p>
           <p>current Price</p>
@@ -37,7 +36,6 @@ const Coins = () => {
             </Link>
           );
         })}
-      </div>
     </div>
   );
 };
