@@ -13,8 +13,8 @@ function App() {
         <Route path="/" element={<Coins />} />
         <Route path="/coin" element={<Coin />}>
           <Route path=":coinId" element={<Coin />} />
-          <Route path=":favorite" element={<FavList />} />
         </Route>
+        <Route path="/favorite" element={<FavList />} />
       </Routes>
     </>
   );

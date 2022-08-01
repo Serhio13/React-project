@@ -20,40 +20,42 @@ const Coins = () => {
   );
 
   const handlerFavorite = (id: string) => {
-    setFavorite(StorageFavorite.toogleFavorite(id))
-  }
+    setFavorite(StorageFavorite.toogleFavorite(id));
+  };
 
   useEffect(() => {
-    setFavorite(StorageFavorite.getFavorite())
-  }, [])
+    setFavorite(StorageFavorite.getFavorite());
+  }, []);
 
   return (
     <div className="coin container">
-        <div className="coin__input">
-          <Input placeholder="Search" onChange={handlerChange} />
-          <Button ghost size="middle" >
-              <Link to=":favorite">
-                Favorite
-              </Link>
-          </Button>
-        </div>
-        <div className="coin__heading">
-          <p>#</p>
-          <p>Coin</p>
-          <p>current Price</p>
-          <p>24h</p>
-          <p className="hide-mobile">Volume</p>
-          <p className="hide-mobile">Mkt Cap</p>
-        </div>
+      <div className="coin__input">
+        <Input placeholder="Search" onChange={handlerChange} />
+        <Button ghost size="middle">
+          <Link to="/favorite">Favorite</Link>
+        </Button>
+      </div>
+      <div className="coin__heading">
+        <p>#</p>
+        <p>Coin</p>
+        <p>current Price</p>
+        <p>24h</p>
+        <p className="hide-mobile">Volume</p>
+        <p className="hide-mobile">Mkt Cap</p>
+      </div>
 
-        {filteredCoins.map((coins) => {
-          const isFavorite = favorite.includes(coins.id)           
-          return (
-            <Link to={`/coin/${coins.id}`} key={coins.id}>
-              <CoinItem coins={coins} handlerFavorite={handlerFavorite} isFavorite={isFavorite} />
-            </Link>
-          );
-        })}
+      {filteredCoins.map((coins) => {
+        const isFavorite = favorite.includes(coins.id);
+        return (
+          <Link to={`/coin/${coins.id}`} key={coins.id}>
+            <CoinItem
+              coins={coins}
+              handlerFavorite={handlerFavorite}
+              isFavorite={isFavorite}
+            />
+          </Link>
+        );
+      })}
     </div>
   );
 };
