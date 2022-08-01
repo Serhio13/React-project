@@ -3,7 +3,7 @@ import CoinItem from '../CoinItem/CoinItem';
 import { useCoinRes } from '../../hooks/useCoinRes';
 import './Coins.scss';
 import { Link } from 'react-router-dom';
-import { Input } from 'antd';
+import { Button, Input } from 'antd';
 
 const Coins = () => {
   const { coins } = useCoinRes();
@@ -19,7 +19,14 @@ const Coins = () => {
 
   return (
     <div className="coin container">
-        <Input placeholder="Search" onChange={handlerChange} />
+        <div className="coin__input">
+          <Input placeholder="Search" onChange={handlerChange} />
+          <Button ghost size="middle">
+              <Link to=":favorite">
+                Favorite
+              </Link>
+          </Button>
+        </div>
         <div className="coin__heading">
           <p>#</p>
           <p>Coin</p>

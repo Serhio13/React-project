@@ -69,6 +69,11 @@ img {
   align-items: center;
 }
 
+.coin__input {
+  display: flex;
+  justify-content: space-between;
+}
+
 @media (max-width: 670px) {
   .hide-mobile {
     display: none;

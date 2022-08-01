@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import { coinInfo } from '../../Types/coin-type';
 import '../Coins/Coins.scss';
+import { HeartOutlined } from '@ant-design/icons';
 
 const CoinItem: FC<{ coins: coinInfo }> = ({ coins }) => {
   return (
@@ -21,6 +22,7 @@ const CoinItem: FC<{ coins: coinInfo }> = ({ coins }) => {
       </p>
       <p className="hide-mobile">${coins.total_volume.toLocaleString()}</p>
       <p className="hide-mobile">${coins.market_cap.toLocaleString()}</p>
+      <HeartOutlined />
     </div>
   );
 };
