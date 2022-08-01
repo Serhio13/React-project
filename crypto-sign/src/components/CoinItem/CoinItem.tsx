@@ -3,7 +3,11 @@ import { coinInfo } from '../../Types/coin-type';
 import '../Coins/Coins.scss';
 import { HeartOutlined } from '@ant-design/icons';
 
-const CoinItem: FC<{ coins: coinInfo }> = ({ coins }) => {
+const CoinItem: FC<{ 
+  coins: coinInfo, 
+  handlerFavorite: (id: string) => void, 
+  isFavorite: boolean 
+}> = ({ coins, handlerFavorite, isFavorite }) => {  
   return (
     <div className="coin__row">
       <p>{coins.market_cap_rank}</p>
@@ -22,7 +26,10 @@ const CoinItem: FC<{ coins: coinInfo }> = ({ coins }) => {
       </p>
       <p className="hide-mobile">${coins.total_volume.toLocaleString()}</p>
       <p className="hide-mobile">${coins.market_cap.toLocaleString()}</p>
-      <HeartOutlined />
+      <HeartOutlined className={`${isFavorite ? 'red' : ''}`} onClick={(e) => {
+        e.preventDefault()
+        handlerFavorite(coins.id)
+      }}/>
     </div>
   );
 };

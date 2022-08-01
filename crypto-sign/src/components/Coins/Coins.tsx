@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import CoinItem from '../CoinItem/CoinItem';
 import { useCoinRes } from '../../hooks/useCoinRes';
 import './Coins.scss';
 import { Link } from 'react-router-dom';
 import { Button, Input } from 'antd';
+import StorageFavorite from '../../services/storage';
 
 const Coins = () => {
   const { coins } = useCoinRes();
+  const [favorite, setFavorite] = useState<string[]>([]);
   const [search, setSearch] = useState('');
 
   const handlerChange = (e: any) => {
@@ -17,11 +19,19 @@ const Coins = () => {
     coin.id.toLocaleLowerCase().includes(search.toLocaleLowerCase())
   );
 
+  const handlerFavorite = (id: string) => {
+    setFavorite(StorageFavorite.toogleFavorite(id))
+  }
+
+  useEffect(() => {
+    setFavorite(StorageFavorite.getFavorite())
+  }, [])
+
   return (
     <div className="coin container">
         <div className="coin__input">
           <Input placeholder="Search" onChange={handlerChange} />
-          <Button ghost size="middle">
+          <Button ghost size="middle" >
               <Link to=":favorite">
                 Favorite
               </Link>
@@ -37,9 +47,10 @@ const Coins = () => {
         </div>
 
         {filteredCoins.map((coins) => {
+          const isFavorite = favorite.includes(coins.id)           
           return (
             <Link to={`/coin/${coins.id}`} key={coins.id}>
-              <CoinItem coins={coins} />
+              <CoinItem coins={coins} handlerFavorite={handlerFavorite} isFavorite={isFavorite} />
             </Link>
           );
         })}
