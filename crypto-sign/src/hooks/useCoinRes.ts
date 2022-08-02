@@ -2,18 +2,18 @@ import { useEffect, useState } from "react"
 import { Api } from "../services/coinGecoAPI"
 import { coinItem, coinInfo } from "../Types/coin-type"
 
-function useCoinRes () {
-    const [coins, setCoins] = useState<Array<coinInfo>>([])
+function useCoinRes() {
+  const [coins, setCoins] = useState<Array<coinInfo>>([])
 
-    useEffect(() => {
-        Api.getCoins().then(({data}) => {
-          setCoins(data)
-        })
+  useEffect(() => {
+    Api.getCoins().then(({ data }) => {
+      setCoins(data)
+    })
   }, [])
-  return {coins}
+  return { coins }
 }
 
-function useCoin (id?: string) {
+function useCoin(id?: string) {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(false)
   const [coins, setCoins] = useState<coinItem | null>(null)
@@ -21,7 +21,7 @@ function useCoin (id?: string) {
   const getCoin = async () => {
     try {
       setLoading(true)
-      const {data} = await Api.getCoin(id as string)
+      const { data } = await Api.getCoin(id as string)
       setCoins(data)
     } catch (error: any) {
       setError(error)
@@ -31,12 +31,12 @@ function useCoin (id?: string) {
   }
 
   useEffect(() => {
-      if (id) {
-        getCoin()
-      }
-}, [id])
+    if (id) {
+      getCoin()
+    }
+  }, [id])
 
-return {coins, loading, error}
+  return { coins, loading, error }
 }
 
-export {useCoinRes, useCoin}
+export { useCoinRes, useCoin }

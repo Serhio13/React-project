@@ -1,19 +1,21 @@
 import { useParams } from 'react-router-dom';
 import { useCoin } from '../../hooks/useCoinRes';
 
-import './Coin.scss';
+import './Coin.sass';
 import { Spin, Tooltip } from 'antd';
 
-const Coin = () => {
+const AboutCoin = () => {
   const { coinId } = useParams();
   const { coins, loading } = useCoin(coinId);
 
   return (
     <Spin size="large" spinning={loading}>
       <div className="coin__container">
+
         <div className="coin__content">
           <h1>{coins?.name}</h1>
         </div>
+
         <div className="coin__content">
           <div className="coin__rank">
             <span className="coin__rank-btn">Rank # {coins?.market_cap_rank}</span>
@@ -31,11 +33,12 @@ const Coin = () => {
             </div>
           </div>
         </div>
+
         <div className="coin__content">
           <div className="coin__pricechange">
-            <Tooltip 
-              className='tooltipMy' 
-              title="price change in the last hour" 
+            <Tooltip
+              className='tooltipMy'
+              title="price change in the last hour"
               color="#33343b8e"
             >
               <div className="coin__pricechange-column">
@@ -87,6 +90,7 @@ const Coin = () => {
             </Tooltip>
           </div>
         </div>
+
         <div className="coin__content">
           <div className="coin__stats">
             <div className="coin__stats-left">
@@ -117,9 +121,10 @@ const Coin = () => {
             </div>
           </div>
         </div>
+
       </div>
     </Spin>
   );
 };
 
-export default Coin;
+export default AboutCoin;

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import CoinItem from '../CoinItem/CoinItem';
 import { useCoinRes } from '../../hooks/useCoinRes';
-import './Coins.scss';
+import './Coins.sass';
 import { Link } from 'react-router-dom';
 import { Button, Input } from 'antd';
 import StorageFavorite from '../../services/storage';
@@ -29,19 +29,22 @@ const Coins = () => {
 
   return (
     <div className="coin container">
+
       <div className="coin__input">
         <Input placeholder="Search" onChange={handlerChange} />
         <Button ghost size="middle">
           <Link to="/favorite">Favorite</Link>
         </Button>
       </div>
+      
       <div className="coin__heading">
         <p>#</p>
         <p>Coin</p>
-        <p>current Price</p>
+        <p>Price</p>
         <p>24h</p>
         <p className="hide-mobile">Volume</p>
         <p className="hide-mobile">Mkt Cap</p>
+        <p>Favorit</p>
       </div>
 
       {filteredCoins.map((coins) => {

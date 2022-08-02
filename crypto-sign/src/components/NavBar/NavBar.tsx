@@ -1,5 +1,5 @@
 import React from 'react';
-import './NavBar.scss';
+import './NavBar.sass';
 import { Link } from 'react-router-dom';
 import useTheme from '../../hooks/useTheme';
 import { Button } from 'antd';
@@ -24,18 +24,18 @@ const NavBar = () => {
 
             <Button ghost size="small">
               <Link to="/">
-              Back
+                Back
               </Link>
             </Button>
 
             <Link to="/">
-            <div className="navbar__logo">
-              <LineChartOutlined />
-              <h1>
-                <span className="navbar__logo-span">Crypto</span>
-                <span className="navbar__logo-green">Sign</span>
-              </h1>
-            </div>
+              <div className="navbar__logo">
+                <LineChartOutlined />
+                <h1>
+                  <span className="navbar__logo-span">Crypto</span>
+                  <span className="navbar__logo-green">Sign</span>
+                </h1>
+              </div>
             </Link>
 
             <div className="navbar__switcher">
@@ -46,9 +46,10 @@ const NavBar = () => {
                 Dark
               </Button>
             </div>
+
           </div>
-        </div>  
-      </header> 
+        </div>
+      </header>
     </>
   );
 };

@@ -1,7 +1,7 @@
-import './App.scss';
+// import './App.scss';
 import { Routes, Route } from 'react-router-dom';
 import Coins from './components/Coins/Coins';
-import Coin from './components/Coin/Coin';
+import AboutCoin from './components/AboutCoin/AboutCoin';
 import NavBar from './components/NavBar/NavBar';
 import FavList from './components/FavList';
 
@@ -11,8 +11,8 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<Coins />} />
-        <Route path="/coin" element={<Coin />}>
-          <Route path=":coinId" element={<Coin />} />
+        <Route path="/coin" element={<AboutCoin />}>
+          <Route path=":coinId" element={<AboutCoin />} />
         </Route>
         <Route path="/favorite" element={<FavList />} />
       </Routes>
