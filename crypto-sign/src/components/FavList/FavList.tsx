@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useCoinRes } from '../../hooks/useCoinRes';
 import StorageFavorite from '../../services/storage';
-import CoinItem from '../CoinItem/CoinItem';
 
 const FavList = () => {
   const { coins } = useCoinRes();
@@ -19,8 +18,8 @@ const FavList = () => {
         <p>Coin</p>
         <p>current Price</p>
         <p>24h</p>
-        <p className="hide-mobile">Volume</p>
-        <p className="hide-mobile">Mkt Cap</p>
+        <p className="hide-mobile">24h Volume</p>
+        <p className="hide-mobile">Market Cap</p>
       </div>
       {coins &&
         coins

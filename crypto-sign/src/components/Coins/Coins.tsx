@@ -36,14 +36,14 @@ const Coins = () => {
           <Link to="/favorite">Favorite</Link>
         </Button>
       </div>
-      
+
       <div className="coin__heading">
         <p>#</p>
         <p>Coin</p>
         <p>Price</p>
         <p>24h</p>
-        <p className="hide-mobile">Volume</p>
-        <p className="hide-mobile">Mkt Cap</p>
+        <p className="hide-mobile">24h Volume</p>
+        <p className="hide-mobile">Market Cap</p>
         <p>Favorite</p>
       </div>
 
