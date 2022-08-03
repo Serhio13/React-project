@@ -8,16 +8,11 @@ import { LineChartOutlined } from '@ant-design/icons';
 const NavBar = () => {
   const { theme, setTheme } = useTheme();
 
-  const handleLightTheme = () => {
-    setTheme('light');
-  };
-
-  const handleDarkTheme = () => {
-    setTheme('dark');
-  };
+  const handleTheme = (theme: 'light' | 'dark') => () => {
+    setTheme(theme);
+  }
 
   return (
-    <>
       <header>
         <div className="container">
           <div className="navbar">
@@ -39,10 +34,10 @@ const NavBar = () => {
             </Link>
 
             <div className="navbar__switcher">
-              <Button ghost size="small" onClick={handleLightTheme}>
+              <Button ghost size="small" onClick={handleTheme('light')}>
                 Light
               </Button>
-              <Button ghost size="small" onClick={handleDarkTheme}>
+              <Button ghost size="small" onClick={handleTheme('dark')}>
                 Dark
               </Button>
             </div>
@@ -50,7 +45,6 @@ const NavBar = () => {
           </div>
         </div>
       </header>
-    </>
   );
 };
 

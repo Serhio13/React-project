@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { coinInfo } from '../../Types/coin-type';
+import { coinInfo } from '../../types/coin-type';
 import '../Coins/Coins.sass';
 import { HeartFilled } from '@ant-design/icons';
 
@@ -8,6 +8,12 @@ const CoinItem: FC<{
   handlerFavorite: (id: string) => void,
   isFavorite: boolean
 }> = ({ coins, handlerFavorite, isFavorite }) => {
+
+  const handlerFavClick = (e: any) => {
+    e.preventDefault()
+    handlerFavorite(coins.id)
+  };
+
   return (
     <div className="coin__row">
       <p>{coins.market_cap_rank}</p>
@@ -26,10 +32,7 @@ const CoinItem: FC<{
       </p>
       <p className="hide-mobile">${coins.total_volume.toLocaleString()}</p>
       <p className="hide-mobile">${coins.market_cap.toLocaleString()}</p>
-      <HeartFilled className={`${isFavorite ? 'red' : ''}`} onClick={(e) => {
-        e.preventDefault()
-        handlerFavorite(coins.id)
-      }} />
+      <HeartFilled className={`${isFavorite ? 'red' : ''}`} onClick={handlerFavClick} />
     </div>
   );
 };

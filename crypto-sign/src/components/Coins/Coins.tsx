@@ -44,7 +44,7 @@ const Coins = () => {
         <p>24h</p>
         <p className="hide-mobile">Volume</p>
         <p className="hide-mobile">Mkt Cap</p>
-        <p>Favorit</p>
+        <p>Favorite</p>
       </div>
 
       {filteredCoins.map((coins) => {

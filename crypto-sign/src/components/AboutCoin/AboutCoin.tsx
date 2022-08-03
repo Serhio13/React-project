@@ -3,6 +3,7 @@ import { useCoin } from '../../hooks/useCoinRes';
 
 import './Coin.sass';
 import { Spin, Tooltip } from 'antd';
+import InnerHTMLFunction from '../../utils/innerHTML';
 
 const AboutCoin = () => {
   const { coinId } = useParams();
@@ -117,7 +118,7 @@ const AboutCoin = () => {
           <div className="coin__content">
             <div className="coin__content-about">
               <h3>About</h3>
-              <p dangerouslySetInnerHTML={{ __html: coins?.description.en as string, }} />
+              <p dangerouslySetInnerHTML={InnerHTMLFunction(coins?.description.en as string)} />
             </div>
           </div>
         </div>

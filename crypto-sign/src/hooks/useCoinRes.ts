@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { Api } from "../services/coinGecoAPI"
-import { coinItem, coinInfo } from "../Types/coin-type"
+import { coinItem, coinInfo } from "../types/coin-type"
 
 function useCoinRes() {
   const [coins, setCoins] = useState<Array<coinInfo>>([])

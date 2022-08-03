@@ -1,6 +1,6 @@
 import { AxiosResponse } from 'axios';
 import $api from '../http/axios';
-import { coinItem } from '../Types/coin-type';
+import { coinItem } from '../types/coin-type';
 
 
 export class Api {
